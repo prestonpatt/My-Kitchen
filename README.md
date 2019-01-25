@@ -1,8 +1,5 @@
 # project1
-Description
-Social Media Platform Aggregator
-Aggregates social media posts of specified user handles, from social media platforms (facebook, instagram, twitter, pinterest, etc.), allowing a user who has to easliy scan their defined 
-
+Project 1 Overview
 
 Project Title: Recipe Aggregator
 Team Members: Juan Delgado, Aaron Smith, Preston Patterson, Sarah Diseker
