@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Recipe Searcher</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">Recipe Searcher</h1>
+            <h3 class="text-center">Search for the best recipes and videos on how to make them.</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">Find Your Recipes</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input class="form-control" id="recipe-name-input" type="search">
+                        </div>
+                        <button class="btn btn-dark" id="add-recipe-btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">The recipes for your dish</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='recipe-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Recipe Name</th>
+                                    <th scope="col">Main Ingredient</th>
+                                    <th scope="col">Time to Prepare</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">Videos on how to make your dish</div>
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/javascript.js"></script>
 </body>
 </html>
