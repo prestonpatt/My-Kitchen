@@ -14,16 +14,7 @@ section {
 }
 
 #search-btn {
-    position: absolute;
-    right: 304px;
-    top: 5px;
-    height: 32px;
-    width: 32px;
-    border: 0;
-    cursor: pointer;
-    zoom: 1;
-    opacity: 0.65;
-    background: transparent url('http://timivey.com/external/codepen/youtube-search-engine/images/search.png') top left no-repeat; 
+    margin-top: 5px;
 }
 
 #results li {
