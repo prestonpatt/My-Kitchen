@@ -1,5 +1,11 @@
+var apiKeyYouTube = 'AIzaSyDK_1yPwKvCaESvpbb720lhlXhWOgA7TZA';
 
-var apikey = 'AIzaSyDK_1yPwKvCaESvpbb720lhlXhWOgA7TZA';
+var apiKey = "efaba70a5fdb8ae09da79304b664e07c";
+var apiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
+var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
+var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
+var recipeSearch = $("#query").val().trim();
+var queryURL = "https://www.food2fork.com/api/search?key=" + apiKey2 + "&q=" + recipeSearch;
 
 $(function () {
     $('#search-form').submit(function (e) {
@@ -15,7 +21,7 @@ function search() {
             part: 'snippet, id',
             q: q,
             type: 'video',
-            key: apikey
+            key: apiKeyYouTube
         },
         function (data) {
             $.each(data.items, function (i, item) {
@@ -23,6 +29,23 @@ function search() {
                 $('#results').prepend(output);
             });
         });
+
+    $.ajax({
+            url: queryURL,
+            method: "GET",
+            dataType: "json"
+        })
+        .then(function (response) {
+            // var recipeLink = $("<a>").attr("href", response.recipes[0].source_url);
+            var randomResult = Math.floor(Math.random() * 29);
+            console.log(randomResult)
+            $(".card-img-top").attr("src", response.recipes[randomResult].image_url);
+            $(".card-title").text(response.recipes[randomResult].title)
+            $(".btn.btn-primary").attr("href", response.recipes[randomResult].source_url);
+            // console.log(response.recipes[0].publisher)
+            // var results = response;
+            // console.log(response[1])
+        })
 }
 
 function getOutput(item) {
@@ -46,4 +69,20 @@ function getOutput(item) {
         '<div class="clearfix"></div>' +
         '';
     return output;
+
 }
+
+var card = $("<div>").html('<img src="..." class="card-img-top"' +
+    ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
+    `<h5 class="card-title"></h5>` +
+    '<a href="#" target="_blank" class="btn btn-primary">Directions</a>'
+)
+
+var card2 = $("<div>").html('<img src="..." class="card-img-top"' +
+    ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
+    `<h5 class="card-title"></h5>` +
+    '<a href="#" target="_blank" class="btn btn-primary">Directions</a>'
+)
+
+$('#card1').append(card);
+$('#card2').append(card2);
