@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <form id="search-form" name="search-form" onsubmit="return search()" data-parsley-validate>
                             <div class="fieldcontainer">
-                                <input type="search" id="query" class="form-control" placeholder="Search Recipes" data-parsley-required="true">
+                                <input type="search" id="query" class="form-control" placeholder="Search Recipes" data-parsley-required="true" data-parsley-trigger="submit" data-parsley-error-message="Please Enter Food Here!"/>
                                 <input type="submit" name="search-btn" id="search-btn" value="Submit">
                             </div>
                         </form>
@@ -39,8 +39,6 @@
                     <div class="card-header">The recipes for your dish</div>
                     <div class="card-body" id="text-dump">
                         <div class="card1" id="card1">
-                        </div>
-                        <div class="card2" id="card2">
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,13 @@
 var apiKeyYouTube = 'AIzaSyDK_1yPwKvCaESvpbb720lhlXhWOgA7TZA';
 var apiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var apiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
+var f2fapiKey = "efaba70a5fdb8ae09da79304b664e07c";
+var f2fapiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
+
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
 var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
 var recipeSearch = $("#query").val().trim();
-var queryURL = "https://www.food2fork.com/api/search?key=" + apiKey2 + "&q=" + recipeSearch;
+var queryURL = "https://www.food2fork.com/api/search?key=" + aaronApiKey + "&q=" + recipeSearch;
 
 $(function () {
     $('#search-form').submit(function (e) {
@@ -36,10 +39,12 @@ function search() {
         })
         .then(function (response) {
             var randomResult = Math.floor(Math.random() * 29);
+            var output2 = getOutput2(response);
             console.log(randomResult)
             $(".card-img-top").attr("src", response.recipes[randomResult].image_url);
             $(".card-title").text(response.recipes[randomResult].title);
             $(".btn.btn-primary").attr("href", response.recipes[randomResult].source_url);
+            $('#card1').append(output2);
         })
 }
 
@@ -67,17 +72,11 @@ function getOutput(item) {
 
 }
 
-var card = $("<div>").html('<img src="..." class="card-img-top"' +
-    ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
-    `<h5 class="card-title"></h5>` +
-    '<a href="#" target="_blank" class="btn btn-primary">Directions</a>'
-)
-
-var card2 = $("<div>").html('<img src="..." class="card-img-top"' +
-    ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
-    `<h5 class="card-title"></h5>` +
-    '<a href="#" target="_blank" class="btn btn-primary">Directions</a>'
-)
-
-$('#card1').append(card);
-$('#card2').append(card2);
+function getOutput2(response) {
+    var output2 = $("<div>").html('<img src="..." class="card-img-top"' +
+        ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
+        `<h5 class="card-title"></h5>` +
+        '<a href="#" target="_blank" class="btn btn-primary">Directions</a>'
+    )
+    return output2;
+};
