@@ -13,7 +13,15 @@ $(function () {
     });
 });
 
-function search() {
+function search(a) {
+    if ($('#query').val() === '') {
+        return false;
+    }else {
+        return runCode();
+    }
+};
+
+function runCode() {
     q = $('#query').val();
 
     $.get(
