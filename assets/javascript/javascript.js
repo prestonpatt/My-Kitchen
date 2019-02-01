@@ -4,11 +4,12 @@ var f2fapiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var f2fapiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
 var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
-var queryURL = "https://www.food2fork.com/api/search?key=" + aaronApiKey + "&q=";
+var queryURL = "https://www.food2fork.com/api/search?key=" + f2fapiKey + "&q=";
 
 $(function () {
     $('#search-form').submit(function (e) {
         e.preventDefault();
+        $('#results').empty();
     });
 });
 
@@ -18,7 +19,7 @@ function search() {
     $.get(
         "https://www.googleapis.com/youtube/v3/search", {
             part: 'snippet, id',
-            q: q,
+            q: q + '%20recipe',
             type: 'video',
             key: apiKeyYouTube
         },
