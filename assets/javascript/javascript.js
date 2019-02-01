@@ -4,8 +4,8 @@ var f2fapiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var f2fapiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
 var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
-var recipeSearch = $("#query").val().trim();
-var queryURL = "https://www.food2fork.com/api/search?key=" + aaronApiKey + "&q=" + recipeSearch;
+// var recipeSearch = $("#query").val().trim();
+var queryURL = "https://www.food2fork.com/api/search?key=" + aaronApiKey + "&q=";
 
 $(function () {
     $('#search-form').submit(function (e) {
@@ -31,18 +31,14 @@ function search() {
         });
 
     $.ajax({
-            url: queryURL,
+            url: queryURL + q,
             method: "GET",
             dataType: "json"
         })
         .then(function (response) {
-            var randomResult = Math.floor(Math.random() * 29);
             var output2 = getOutput2(response);
-            console.log(randomResult)
-            $(".card-img-top").attr("src", response.recipes[randomResult].image_url);
-            $(".card-title").text(response.recipes[randomResult].title)
-            $(".btn.btn-primary").attr("href", response.recipes[randomResult].source_url);
-            $('#card1').append(output2);
+            $('#card1').html(output2);
+            console.log(response);
         })
 }
 
@@ -67,14 +63,18 @@ function getOutput(item) {
         '<div class="clearfix"></div>' +
         '';
     return output;
-
 }
 
 function getOutput2(response) {
-    var output2 = $("<div>").html('<img src="..." class="card-img-top"' +
+    var randomResult = Math.floor(Math.random() * 29);
+    var recipeImg = response.recipes[randomResult].image_url;
+    var recipeTitle = response.recipes[randomResult].title;
+    var recipeURL = response.recipes[randomResult].source_url
+
+    var output2 = $("<div>").html('<img src="' + recipeImg + '" class="card-img-top"' +
         ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
-        `<h5 class="card-title"></h5>` +
-        '<a href="#" target="_blank" class="btn btn-primary">Directions</a>'
+        '<h5 class="card-title">' + recipeTitle + '</h5>' +
+        '<a href="' + recipeURL + '" target="_blank" class="btn btn-primary">Directions</a>'
     )
     return output2;
 };
