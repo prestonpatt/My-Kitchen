@@ -1,5 +1,4 @@
 var apiKeyYouTube = 'AIzaSyDK_1yPwKvCaESvpbb720lhlXhWOgA7TZA';
-
 var apiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var apiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
@@ -36,15 +35,11 @@ function search() {
             dataType: "json"
         })
         .then(function (response) {
-            // var recipeLink = $("<a>").attr("href", response.recipes[0].source_url);
             var randomResult = Math.floor(Math.random() * 29);
             console.log(randomResult)
             $(".card-img-top").attr("src", response.recipes[randomResult].image_url);
-            $(".card-title").text(response.recipes[randomResult].title)
+            $(".card-title").text(response.recipes[randomResult].title);
             $(".btn.btn-primary").attr("href", response.recipes[randomResult].source_url);
-            // console.log(response.recipes[0].publisher)
-            // var results = response;
-            // console.log(response[1])
         })
 }
 
