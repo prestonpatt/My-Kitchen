@@ -61,8 +61,6 @@ section {
     float: left;
 }
 
-.card2 {
-    width: 18rem;
-    float: left;
-    margin-left: 20px;
+.card-img-top {
+    height: 200px;
 }
