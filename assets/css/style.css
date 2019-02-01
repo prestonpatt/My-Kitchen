@@ -1,0 +1,68 @@
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+#container {
+    width: 740px;
+    background: #fff;
+    margin: auto;
+}
+
+section {
+    padding: 30px 20px 20px 20px;
+}
+
+#search-btn {
+    margin-top: 5px;
+}
+
+#results li {
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    list-style: none;
+    overflow: auto;
+}
+.list-left {
+    float: left;
+    width: 20%;
+}
+.list-left img {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ccc;
+}
+
+.list-right {
+    float: right;
+    width: 78%;
+}
+
+.list-right h3 {
+    margin: 0;
+}
+
+.list-right p {
+    margin: 0;
+}
+
+.paging-button {
+    background: #f4f4f4;
+    padding: 0 13px;
+    border: #ccc 1px solid;
+    border-radius: 5px;
+    color: #333;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.card1 {
+    width: 18rem;
+    float: left;
+}
+
+.card2 {
+    width: 18rem;
+    float: left;
+    margin-left: 20px;
+}
