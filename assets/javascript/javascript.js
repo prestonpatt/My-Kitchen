@@ -4,7 +4,6 @@ var f2fapiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var f2fapiKey2 = "3e41e73b5dc6d9814f11a41367eba21e";
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
 var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
-// var recipeSearch = $("#query").val().trim();
 var queryURL = "https://www.food2fork.com/api/search?key=" + aaronApiKey + "&q=";
 
 $(function () {
