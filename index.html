@@ -15,8 +15,8 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <!-- <h1 class="text-center">Recipe Searcher</h1> -->
-            <!--<h3 class="text-center">Search top-rated recipes and cooking videos from the best recipe sites.</h3> -->
+            <h1 class="text-center">Recipe Searcher</h1>
+            <h3 class="text-center">Search top-rated recipes and cooking videos from the best recipe sites.</h3>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -25,7 +25,9 @@
                     <div class="card-body">
                         <form id="search-form" name="search-form" onsubmit="return search()" data-parsley-validate>
                             <div class="fieldcontainer">
-                                <input type="search" id="query" class="form-control" placeholder="Search Recipes" data-parsley-required="true" data-parsley-trigger="submit" data-parsley-error-message="Please Enter Food Here!"/>
+                                <input type="search" id="query" class="form-control" placeholder="Search Recipes"
+                                    data-parsley-required="true" data-parsley-trigger="submit"
+                                    data-parsley-error-message="Please Enter Food Here!" />
                                 <input type="submit" name="search-btn" id="search-btn" value="Submit">
                             </div>
                         </form>
@@ -38,8 +40,7 @@
                 <div class="card mb-4">
                     <div class="card-header">The recipes for your dish</div>
                     <div class="card-body" id="text-dump">
-                        <div class="card1" id="card1">
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -48,31 +49,30 @@
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-header">Videos on how to make your dish</div>
-                    <div id="container">
-                        <section>
-                            <ul id="results"></ul>
-                        </section>
+                    <div class="card-body" id="results">
+
                     </div>
                 </div>
             </div>
         </div>
-		
-		
-		
-		<div class="row">
+
+
+
+        <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <div class="card-header"><img src="assets/images/award-filled.png" style="width:30px;hright:30px;" />My Favorite Recipe Directions</div>
-                    <div class="card-body" id="text-dump">
+                    <div class="card-header"><img src="assets/images/award-filled.png" style="width:30px;hright:30px;" />My
+                        Favorite Recipe Directions</div>
+                    <div class="card-body" id="favorite-dump">
                         <div class="card1" id="item"></div>
-						<div class="card1" id="item2"></div>
-						<div class="card1" id="item3"></div>
-						<div class="card1" id="item4"></div>
+                        <div class="card1" id="item2"></div>
+                        <div class="card1" id="item3"></div>
+                        <div class="card1" id="item4"></div>
                     </div>
                 </div>
             </div>
         </div>
-		
+
     </div>
     <script src="assets/javascript/javascript.js"></script>
 </body>
