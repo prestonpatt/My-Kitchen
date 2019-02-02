@@ -10,6 +10,7 @@ $(function () {
     $('#search-form').submit(function (e) {
         e.preventDefault();
         $('#results').empty();
+        $('#text-dump').empty();
     });
 });
 
@@ -27,8 +28,9 @@ function runCode() {
     $.get(
         "https://www.googleapis.com/youtube/v3/search", {
             part: 'snippet, id',
-            q: q + '%20recipe',
+            q: q,
             type: 'video',
+            channelId: 'UCJFp8uSYCjXOMnkUyb3CQ3Q',
             key: apiKeyYouTube
         },
         function (data) {
