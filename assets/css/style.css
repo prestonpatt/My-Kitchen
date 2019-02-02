@@ -62,15 +62,21 @@ section {
     margin: 10px;
     cursor: pointer;
 }
+
 #item2,#item3{margin-left:10px;}
+
 .card1 {
     width: 18rem;
     float: left;
+    margin: 5px;
 }
 
 .card-img-top {
     height: 200px;
 }
+
+
+
 #none{display:none;}
 .list-left .fav img{width:20px;height:20px;}
 .fav img{width:30px;height:30px;}
