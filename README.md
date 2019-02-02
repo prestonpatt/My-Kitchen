@@ -1,25 +1,13 @@
 # project1
+
 Project 1 Overview
 
 Project Title: Recipe Aggregator
 Team Members: Juan Delgado, Aaron Smith, Preston Patterson, Sarah Diseker
 Aggregates written recipes (Spoonacular API) and cooking videos (YouTube API) that allows you to save your favorites locally.
 
-Tasks:
-Tasks will be traced on github  https://github.com/prestonpatt/project1/issues)
-    High-level:
-    Sign up for API keys
-    Make front-end and back-end assignments
-    Assigned team members develop front-end and back-end code
-    Review initial code as team
-    Revise code
-    Review code
-    Revise code
-    Review and finalize 
-
-
-Sketch:  
-See slack channel for sketch, which we will have completed on Saturday, 1/26/19.)
+Ability to search for recipes via Food2Fork API and YouTube API
+Abiility for users to save a recipe as a "favorite" recipe to their local repository and also have it show in a secion titled "favorite recipes" (this new secion will be beneath the YouTube results section)
 
 
 

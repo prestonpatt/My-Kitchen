@@ -9,6 +9,13 @@ a {
     margin: auto;
 }
 
+
+.jumbotron {
+    background-image: "../assets/images/mykitchenlogo.png";
+    background-size: cover;
+    color: white;
+    }
+
 section {
     padding: 30px 20px 20px 20px;
 }
@@ -55,7 +62,7 @@ section {
     margin: 10px;
     cursor: pointer;
 }
-
+#item2,#item3{margin-left:10px;}
 .card1 {
     width: 18rem;
     float: left;
@@ -64,3 +71,14 @@ section {
 .card-img-top {
     height: 200px;
 }
+#none{display:none;}
+.list-left .fav img{width:20px;height:20px;}
+.fav img{width:30px;height:30px;}
+.fav { display: none; }
+.product:hover .fav{ display: block; width:150px;height:30px;z-index:1;margin-top:20px;position: absolute;background:#f3f3f3;cursor:pointer;}
+.list-left:hover .fav{ display: block; width:100px;height:20px;z-index:1;margin-top:20px;font-size:10px;position: absolute;background:#f3f3f3;cursor:pointer;}
+
+.favdel img{width:30px;height:30px;}
+.favdel { display: none; }
+.product:hover .favdel{ display: block; width:30px;height:30px;z-index:1;margin-top:20px;position: absolute;background:#f3f3f3;cursor:pointer;}
+.list-left:hover .favdel{ display: block; width:30px;height:20px;z-index:1;margin-top:20px;font-size:10px;position: absolute;background:#f3f3f3;cursor:pointer;}
