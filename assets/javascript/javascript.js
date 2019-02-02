@@ -6,11 +6,22 @@ var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
 var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
 var queryURL = "https://www.food2fork.com/api/search?key=" + f2fapiKey2 + "&q=";
 var f2f;
+// var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+//     ranNums = [],
+//     i = 6,
+//     j = 0;
 $(function () {
     $('#search-form').submit(function (e) {
         e.preventDefault();
         $('#results').empty();
         $('#text-dump').empty();
+        // ranNums = [];
+        // while (i--) {
+        //     j = Math.floor(Math.random() * (nums.length));
+        //     ranNums.push(nums[j]);
+        //     nums.splice(j, 1);
+        // }
+        // console.log(ranNums)
     });
 });
 
@@ -71,7 +82,7 @@ function getOutput(item) {
         '</div>' +
         '<div class="list-right">' +
         '<h3><a data-fancybox-type="iframe" target="_blank" class="fancyboxIframe" href="https://youtube.com/embed/' + videoID + '?rel=0">' + title + '</a></h3>' +
-        '<small>By <span class="cTitle">' + channelTitle  + '</small>' +
+        '<small>By <span class="cTitle">' + channelTitle + '</small>' +
         '<p>' + description + '</p>' +
         '</div>' +
         '</li>' +
@@ -132,61 +143,61 @@ function addtoimg(a) {
 }
 
 
-    var res = localStorage.getItem('res');
-    var res1 = localStorage.getItem('res1');
-    var res2 = localStorage.getItem('res2');
+var res = localStorage.getItem('res');
+var res1 = localStorage.getItem('res1');
+var res2 = localStorage.getItem('res2');
 
-    if (res != null) {
-        var item = res.split(",");
-        var str = item[3];
-        var tit = str.replace(/[^a-zA-Z ]/g, " ")
-        var out = '<div class="product">' +
-            '<div class="favdel" onclick=deleterec("res")><img src="assets/images/trashcan.png"></div>' +
-            '<img src=' + item[1] + ' class="card-img-top" alt="...">' +
-            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit + '</h5>' +
-            '<a href=' + item[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-            '</div></div>';
-        document.getElementById('item').innerHTML = out;
-    }
+if (res != null) {
+    var item = res.split(",");
+    var str = item[3];
+    var tit = str.replace(/[^a-zA-Z ]/g, " ")
+    var out = '<div class="product">' +
+        '<div class="favdel" onclick=deleterec("res")><img src="assets/images/trashcan.png"></div>' +
+        '<img src=' + item[1] + ' class="card-img-top" alt="...">' +
+        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit + '</h5>' +
+        '<a href=' + item[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+        '</div></div>';
+    document.getElementById('item').innerHTML = out;
+}
 
 
-    if (res1 != null) {
-        var item2 = res1.split(",");
-        var str2 = item2[3];
-        var tit2 = str2.replace(/[^a-zA-Z ]/g, " ")
-        var out = '<div class="product">' +
-            '<div class="favdel" onclick=deleterec("res1")><img src="assets/images/trashcan.png"></div>' +
-            '<img src=' + item2[1] + ' class="card-img-top" alt="...">' +
-            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit2 + '</h5>' +
-            '<a href=' + item2[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-            '</div></div>';
-        document.getElementById('item2').innerHTML = out;
-    }
+if (res1 != null) {
+    var item2 = res1.split(",");
+    var str2 = item2[3];
+    var tit2 = str2.replace(/[^a-zA-Z ]/g, " ")
+    var out = '<div class="product">' +
+        '<div class="favdel" onclick=deleterec("res1")><img src="assets/images/trashcan.png"></div>' +
+        '<img src=' + item2[1] + ' class="card-img-top" alt="...">' +
+        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit2 + '</h5>' +
+        '<a href=' + item2[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+        '</div></div>';
+    document.getElementById('item2').innerHTML = out;
+}
 
-    if (res2 != null) {
-        var item3 = res2.split(",");
-        var str3 = item3[3];
-        var tit3 = str3.replace(/[^a-zA-Z ]/g, " ")
-        var out = '<div class="product">' +
-            '<div class="favdel" onclick=deleterec("res2")><img src="assets/images/trashcan.png"></div>' +
-            '<img src=' + item3[1] + ' class="card-img-top" alt="...">' +
-            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit3 + '</h5>' +
-            '<a href=' + item3[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-            '</div></div>';
-        document.getElementById('item3').innerHTML = out;
-    }
-    if (res3 != null) {
-        var item4 = res3.split(",");
-        var str4 = item4[3];
-        var tit4 = str4.replace(/[^a-zA-Z ]/g, " ")
-        var out = '<div class="product">' +
-            '<div class="favdel" onclick=deleterec("res2")><img src="assets/images/trashcan.png"></div>' +
-            '<img src=' + item4[1] + ' class="card-img-top" alt="...">' +
-            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit4 + '</h5>' +
-            '<a href=' + item4[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-            '</div></div>';
-        document.getElementById('item').innerHTML = out;
-    }
+if (res2 != null) {
+    var item3 = res2.split(",");
+    var str3 = item3[3];
+    var tit3 = str3.replace(/[^a-zA-Z ]/g, " ")
+    var out = '<div class="product">' +
+        '<div class="favdel" onclick=deleterec("res2")><img src="assets/images/trashcan.png"></div>' +
+        '<img src=' + item3[1] + ' class="card-img-top" alt="...">' +
+        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit3 + '</h5>' +
+        '<a href=' + item3[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+        '</div></div>';
+    document.getElementById('item3').innerHTML = out;
+}
+if (res3 != null) {
+    var item4 = res3.split(",");
+    var str4 = item4[3];
+    var tit4 = str4.replace(/[^a-zA-Z ]/g, " ")
+    var out = '<div class="product">' +
+        '<div class="favdel" onclick=deleterec("res2")><img src="assets/images/trashcan.png"></div>' +
+        '<img src=' + item4[1] + ' class="card-img-top" alt="...">' +
+        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit4 + '</h5>' +
+        '<a href=' + item4[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+        '</div></div>';
+    document.getElementById('item').innerHTML = out;
+}
 
 
 
