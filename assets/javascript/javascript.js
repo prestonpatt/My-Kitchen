@@ -1,5 +1,5 @@
 var apiKeyYouTube = 'AIzaSyDK_1yPwKvCaESvpbb720lhlXhWOgA7TZA';
-
+var apiKeyYouTube2 = 'AIzaSyDqxSqqaRusfJAst31QLaECEm9N3wUjVCA';
 var f2fapiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var f2fapiKey2 = "b2189fb78a14525d96d74258664ac4de";
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
@@ -31,7 +31,8 @@ function runCode() {
             q: q,
             type: 'video',
             channelId: 'UCJFp8uSYCjXOMnkUyb3CQ3Q',
-            key: apiKeyYouTube
+            maxResults: '6',
+            key: apiKeyYouTube2
         },
         function (data) {
             $.each(data.items, function (i, item) {
@@ -69,8 +70,8 @@ function getOutput(item) {
         '<img src="' + thumb + '">' +
         '</div>' +
         '<div class="list-right">' +
-        '<h3><a data-fancybox-type="iframe" class="fancyboxIframe" href="https://youtube.com/embed/' + videoID + '?rel=0">' + title + '</a></h3>' +
-        '<small>By <span class="cTitle">' + channelTitle + '</span> on ' + videoDate + '</small>' +
+        '<h3><a data-fancybox-type="iframe" target="_blank" class="fancyboxIframe" href="https://youtube.com/embed/' + videoID + '?rel=0">' + title + '</a></h3>' +
+        '<small>By <span class="cTitle">' + channelTitle  + '</small>' +
         '<p>' + description + '</p>' +
         '</div>' +
         '</li>' +

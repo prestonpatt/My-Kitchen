@@ -71,6 +71,12 @@ section {
     margin: 5px;
 }
 
+.card2 {
+    width: 18rem;
+    float: left;
+    margin: 2px;
+}
+
 .card-img-top {
     height: 200px;
 }
