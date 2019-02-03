@@ -6,22 +6,32 @@ var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
 var sarahApiKey = 'ad1b03143bacf457e6cc624753f58408';
 var queryURL = "https://www.food2fork.com/api/search?key=" + f2fapiKey2 + "&q=";
 var f2f;
-// var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-//     ranNums = [],
-//     i = 6,
-//     j = 0;
+
+//new--for my favorites button to take you to saved recipe list
+$(".myfavbutton").click(function() { 
+    $('html,body').animate({
+        scrollTop: $("#pointer").offset().top},
+        'slow');
+});
+//end new
+
+var nums = [0,1,2,3,4,5,6,7,8,9,10],
+    ranNums = [],
+    i = 6,
+    j = 0;
+
 $(function () {
     $('#search-form').submit(function (e) {
         e.preventDefault();
         $('#results').empty();
         $('#text-dump').empty();
-        // ranNums = [];
-        // while (i--) {
-        //     j = Math.floor(Math.random() * (nums.length));
-        //     ranNums.push(nums[j]);
-        //     nums.splice(j, 1);
-        // }
-        // console.log(ranNums)
+        ranNums = [];
+            while (i--) {
+            j = Math.floor(Math.random() * (nums.length));
+            ranNums.push(nums[j]);
+            nums.splice(j,1);
+        }
+        console.log(ranNums)
     });
 });
 
@@ -58,12 +68,26 @@ function runCode() {
             dataType: "json"
         })
         .then(function (response) {
-            for (var i = 1; i < 7; i++) {
-                var cardDiv = $('<div>');
-                var output2 = getOutput2(response);
-                cardDiv.addClass('card1');
-                cardDiv.append(output2);
-                $('#text-dump').append(cardDiv);
+            for (var i = 0; i < 7; i++) {
+            //     var randomResult = Math.floor(Math.random() * 29);
+                
+                
+                
+            //     if (numbers.indexOf(randomResult) === -1) {
+            //         var cardDiv = $('<div>');
+            //         var output2 = getOutput2(response);
+            //         cardDiv.addClass('card1');
+            //         cardDiv.append(output2);
+            //         $('#text-dump').append(cardDiv);
+            //         numbers.push(randomResult)
+            //     }
+            //     else {//create new random number and run if statement again}
+            var cardDiv = $('<div>');
+                    var output2 = getOutput2(response, i);
+                    cardDiv.addClass('card1');
+                    cardDiv.append(output2);
+                    $('#text-dump').append(cardDiv);
+                    // numbers.push(randomResult)
             }
         })
 }
@@ -75,14 +99,17 @@ function getOutput(item) {
     var thumb = item.snippet.thumbnails.high.url;
     var channelTitle = item.snippet.channelTitle;
     var videoDate = item.snippet.publishedAt;
-
+    //new updates on next line    
+    var ctitle = title.replace(/\s/g, "_"); 
+    //end updates
+    
     var output = '<li>' +
-        '<div class="list-left"><div class="fav" onclick=addtofav("' + videoID + ',' + thumb + ',' + videoDate + '")><img src="assets/images/award-outline.png" /> Add to favourite</div>' +
+        '<div class="list-left"><div id="video" class="favvideo" rel="' + videoID + ',' + thumb + ',' + videoDate + ','+ ctitle +'"></div>' +
         '<img src="' + thumb + '">' +
         '</div>' +
         '<div class="list-right">' +
         '<h3><a data-fancybox-type="iframe" target="_blank" class="fancyboxIframe" href="https://youtube.com/embed/' + videoID + '?rel=0">' + title + '</a></h3>' +
-        '<small>By <span class="cTitle">' + channelTitle + '</small>' +
+        '<small>By <span class="cTitle">' + channelTitle  + '</small>' +
         '<p>' + description + '</p>' +
         '</div>' +
         '</li>' +
@@ -93,112 +120,302 @@ function getOutput(item) {
 }
 
 
+function getOutput2(response, i) {
 
-function getOutput2(response) {
-    var randomResult = Math.floor(Math.random() * 29);
-    var recipeImg = response.recipes[randomResult].image_url;
-    var recipeTitle = response.recipes[randomResult].title;
-    var recipeURL = response.recipes[randomResult].source_url;
-    f2f = response.recipes[randomResult].f2f_url;
+    var recipeImg = response.recipes[ranNums[i]].image_url;
+    var recipeTitle = response.recipes[ranNums[i]].title;
+    var recipeURL = response.recipes[ranNums[i]].source_url;
+    f2f = response.recipes[ranNums[i]].f2f_url;
+
+    //new update on next line
+    $(this).css("display", "block");
+    //end update
 
     var title = recipeTitle.replace(/\s/g, "_");
-    var output2 = $("<div class='product'>").html('<div class="fav" onclick=addtoimg("' + f2f + ',' + recipeImg + ',' + recipeURL + ',' + title + '")><img src="assets/images/award-outline.png" />Add to favorite</div><div class="favdel" id="none"><img src="assets/images/award-filled.png"></div><img src="' + recipeImg + '" class="card-img-top"' +
+    
+    //updated next line
+    var output2 = $("<div class='product'>").html('<div class="fav" id="bn" rel ="' + f2f + ',' + recipeImg + ',' + recipeURL + ',' + title + '"></div><img src="' + recipeImg + '" class="card-img-top"' +
         ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
         '<h5 class="card-title">' + recipeTitle + '</h5>' +
         '<a href="' + recipeURL + '" target="_blank" class="btn btn-primary">Directions</a>'
-    )
+    );
     return output2;
 };
 
 
-function addtofav(a) {
+// video event--all below is new
+$('body').on("click", "#video", function(){
+        
+		var a = $(this).attr("rel");
+		$(this).removeClass("favvideo");
+		$(this).addClass("favdel");
+		$(this).removeAttr('id');
+		var res = a.split(",");
+		var vid1 = localStorage.getItem('vid1');
+		var vid2 = localStorage.getItem('vid2');
+		var vid3 = localStorage.getItem('vid3');
+		var vid4 = localStorage.getItem('vid4');
+		var vid5 = localStorage.getItem('vid5');
+		var vid6 = localStorage.getItem('vid6');
+		if (vid1 == null) {
+			localStorage.setItem('vid1', JSON.stringify(res));
+		} else if (vid2 == null) {
+			localStorage.setItem('vid2', JSON.stringify(res));
+		} else if (vid3 == null) {
+			localStorage.setItem('vid3', JSON.stringify(res));
+		} else if (vid4 == null) {
+			localStorage.setItem('vid4', JSON.stringify(res));
+		}  else if (vid5 == null) {
+			localStorage.setItem('vid5', JSON.stringify(res));
+		} else if (vid6 == null) {
+			localStorage.setItem('vid6', JSON.stringify(res));
+		}else {
+			localStorage.setItem('vid7', JSON.stringify(res));
+		}
+		res=null;
+		
+    });
+	
+	
+	
+    var vid1 = localStorage.getItem('vid1');
+    var vid2 = localStorage.getItem('vid2');
+    var vid3 = localStorage.getItem('vid3');
+	var vid4 = localStorage.getItem('vid4');
+    var vid5 = localStorage.getItem('vid5');
+    var vid6 = localStorage.getItem('vid6');
+	var vid7 = localStorage.getItem('vid7');
 
-
-    //localStorage.setItem('prod', JSON.stringify(prod));
-}
-
-function addtoimg(a) {
-    var res = a.split(",");
-    var result = localStorage.getItem('res');
-    var result2 = localStorage.getItem('res1');
-    if (result == null && result2 == null) {
-        localStorage.setItem('res', JSON.stringify(res));
-    } else if (result != null && result2 == null) {
-        localStorage.setItem('res1', JSON.stringify(res));
-    } else if (result != null && result2 != null) {
-        localStorage.setItem('res2', JSON.stringify(res));
-    } else {
-        localStorage.setItem('res3', JSON.stringify(res));
+    if (vid1 != null) {
+        var item = vid1.split(",");
+		var obj = JSON.parse(item);
+		var tit = obj[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid1")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj[0] +'" target="_blank"><img src=' + obj[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
+    }
+	
+	
+	 if (vid2 != null) {
+        var item = vid2.split(",");
+		var obj2 = JSON.parse(item);
+		var tit = obj2[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        // var str = item[3];
+        // var tit = str.replace(/[^a-zA-Z ]/g, " ")
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid2")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj2[0] +'" target="_blank"><img src=' + obj2[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj2[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
+    }
+	
+	
+	 if (vid3 != null) {
+        var item = vid3.split(",");
+		var obj3 = JSON.parse(item);
+        var tit = obj3[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid3")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj3[0] +'" target="_blank"><img src=' + obj3[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj3[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
+    }
+	
+	
+	 if (vid4 != null) {
+        var item = vid4.split(",");
+		var obj4 = JSON.parse(item);
+        var tit = obj4[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid4")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj4[0] +'" target="_blank"><img src=' + obj4[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj4[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
+    }
+	
+	
+	 if (vid5 != null) {
+        var item = vid5.split(",");
+		var obj5 = JSON.parse(item);
+		var tit = obj5[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid5")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj5[0] +'" target="_blank"><img src=' + obj5[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj5[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
+    }
+	
+	 if (vid6 != null) {
+        var item = vid6.split(",");
+		var obj6 = JSON.parse(item);
+		var tit = obj6[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid6")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj6[0] +'" target="_blank"><img src=' + obj6[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj6[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
+    }
+	
+	 if (vid7 != null) {
+        var item = vid7.split(",");
+		var obj7 = JSON.parse(item);
+		var tit = obj7[3];
+		var title = tit.replace(/[^a-zA-Z ]/g, " ");
+        $("#video").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("vid7")><img src="assets/images/trashcan.png"></div>' +
+            '<a href="https://youtube.com/embed/'+ obj7[0] +'" target="_blank"><img src=' + obj7[1] + ' class="card-img-top" alt="..."></a>' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/'+ obj7[0] +'" target="_blank">' + title + '</a></h5>' +
+            '</div></div>');
+        
     }
 
-    $(".fav").css("display", "none");
-    $("#none").css({
-        "display": "block",
-        "margin-top": "20px",
-        "z-index": "1",
-        "position": "absolute",
-        "background": "#f3f3f3"
+
+    
+	
+// product (recipe) event--all below is new
+$('body').on("click", "#bn", function(){
+        
+		var a = $(this).attr("rel");
+		$(this).removeClass("fav");
+		$(this).addClass("favdel");
+		$(this).removeAttr('id');
+		var res = a.split(",");
+		
+		var prd1 = localStorage.getItem('prd1');
+		var prd2 = localStorage.getItem('prd2');
+		var prd3 = localStorage.getItem('prd3');
+		var prd4 = localStorage.getItem('prd4');
+		var prd5 = localStorage.getItem('prd5');
+		var prd6 = localStorage.getItem('prd6');
+		if (prd1 == null) {
+			localStorage.setItem('prd1', JSON.stringify(res));
+		} else if (prd2 == null) {
+			localStorage.setItem('prd2', JSON.stringify(res));
+		} else if (prd3 == null) {
+			localStorage.setItem('prd3', JSON.stringify(res));
+		} else if (prd4 == null) {
+			localStorage.setItem('prd4', JSON.stringify(res));
+		}  else if (prd5 == null) {
+			localStorage.setItem('prd5', JSON.stringify(res));
+		} else if (prd6 == null) {
+			localStorage.setItem('prd6', JSON.stringify(res));
+		}else {
+			localStorage.setItem('prd7', JSON.stringify(res));
+		}
+		
     });
 
-}
 
 
-var res = localStorage.getItem('res');
-var res1 = localStorage.getItem('res1');
-var res2 = localStorage.getItem('res2');
+    var prd1 = localStorage.getItem('prd1');
+    var prd2 = localStorage.getItem('prd2');
+    var prd3 = localStorage.getItem('prd3');
+	var prd4 = localStorage.getItem('prd4');
+    var prd5 = localStorage.getItem('prd5');
+    var prd6 = localStorage.getItem('prd6');
+	var prd7 = localStorage.getItem('prd7');
 
-if (res != null) {
-    var item = res.split(",");
-    var str = item[3];
-    var tit = str.replace(/[^a-zA-Z ]/g, " ")
-    var out = '<div class="product">' +
-        '<div class="favdel" onclick=deleterec("res")><img src="assets/images/trashcan.png"></div>' +
-        '<img src=' + item[1] + ' class="card-img-top" alt="...">' +
-        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit + '</h5>' +
-        '<a href=' + item[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-        '</div></div>';
-    document.getElementById('item').innerHTML = out;
-}
+    if (prd1 != null) {
+        var item = prd1.split(",");
+        var str = item[3];
+        var tit = str.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd1")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit + '</h5>' +
+            '<a href=' + item[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+        
+    }
 
 
-if (res1 != null) {
-    var item2 = res1.split(",");
-    var str2 = item2[3];
-    var tit2 = str2.replace(/[^a-zA-Z ]/g, " ")
-    var out = '<div class="product">' +
-        '<div class="favdel" onclick=deleterec("res1")><img src="assets/images/trashcan.png"></div>' +
-        '<img src=' + item2[1] + ' class="card-img-top" alt="...">' +
-        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit2 + '</h5>' +
-        '<a href=' + item2[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-        '</div></div>';
-    document.getElementById('item2').innerHTML = out;
-}
+    if (prd2 != null) {
+        var item2 = prd2.split(",");
+        var str2 = item2[3];
+        var tit2 = str2.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd2")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item2[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit2 + '</h5>' +
+            '<a href=' + item2[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+    }
 
-if (res2 != null) {
-    var item3 = res2.split(",");
-    var str3 = item3[3];
-    var tit3 = str3.replace(/[^a-zA-Z ]/g, " ")
-    var out = '<div class="product">' +
-        '<div class="favdel" onclick=deleterec("res2")><img src="assets/images/trashcan.png"></div>' +
-        '<img src=' + item3[1] + ' class="card-img-top" alt="...">' +
-        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit3 + '</h5>' +
-        '<a href=' + item3[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-        '</div></div>';
-    document.getElementById('item3').innerHTML = out;
-}
-if (res3 != null) {
-    var item4 = res3.split(",");
-    var str4 = item4[3];
-    var tit4 = str4.replace(/[^a-zA-Z ]/g, " ")
-    var out = '<div class="product">' +
-        '<div class="favdel" onclick=deleterec("res2")><img src="assets/images/trashcan.png"></div>' +
-        '<img src=' + item4[1] + ' class="card-img-top" alt="...">' +
-        '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit4 + '</h5>' +
-        '<a href=' + item4[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
-        '</div></div>';
-    document.getElementById('item').innerHTML = out;
-}
-
+    if (prd3 != null) {
+        var item3 = prd3.split(",");
+        var str3 = item3[3];
+        var tit3 = str3.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd3")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item3[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit3 + '</h5>' +
+            '<a href=' + item3[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+    }
+	
+	if (prd4 != null) {
+        var item4 = prd4.split(",");
+        var str4 = item4[3];
+        var tit4 = str4.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd4")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item4[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit4 + '</h5>' +
+            '<a href=' + item4[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+    }
+	
+	if (prd5 != null) {
+        var item5 = prd5.split(",");
+        var str5 = item5[3];
+        var tit5 = str5.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd5")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item5[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit5 + '</h5>' +
+            '<a href=' + item5[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+    }
+	
+	if (prd6 != null) {
+        var item6 = prd6.split(",");
+        var str6 = item6[3];
+        var tit6 = str6.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd6")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item6[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit6 + '</h5>' +
+            '<a href=' + item6[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+    }
+	
+	if (prd7 != null) {
+        var item7 = prd7.split(",");
+        var str7 = item7[3];
+        var tit7 = str7.replace(/[^a-zA-Z ]/g, " ")
+        $("#item").append('<div class="product">' +
+            '<div class="favdel" onclick=deleterec("prd7")><img src="assets/images/trashcan.png"></div>' +
+            '<img src=' + item7[1] + ' class="card-img-top" alt="...">' +
+            '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit7 + '</h5>' +
+            '<a href=' + item7[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
+            '</div></div>');
+    }
+	
+	
 
 
 function deleterec(a) {

@@ -3,6 +3,13 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    font-size: 20px;
+    color: rgb(27, 26, 25);
+    text-align: center;
+    margin-left: 120px;
+}
+
 #container {
     width: 740px;
     background: #fff;
@@ -11,17 +18,48 @@ a {
 
 
 .jumbotron {
-    background-image: "../assets/images/mykitchenlogo.png";
-    background-size: cover;
-    color: white;
-    }
+    background: url('../images/mykitchenlogo.png') no-repeat center center;
+    background-color: white;
+    margin-top: 30px;
+    } 
 
 section {
     padding: 30px 20px 20px 20px;
 }
 
+.card-header {
+    background-color: rgb(243, 230, 202);
+    border: 1px solid rgb(243, 230, 202);
+    font-weight: bold;
+    color: rgb(175, 123, 73);
+    line-height: 30px;
+}
+
+.card-body {
+    border: 1px solid rgb(243, 230, 202);
+}
+
+.myfavbutton{
+	float: right;
+    margin-top: 150px;
+    margin-right: 80px;
+    background-color: rgb(175, 123, 73);
+    border: 2px solid rgb(175, 123, 73);
+    border-radius: 3px;
+    font-weight: bold;
+    color: white;
+    line-height: 24px;
+    padding-bottom: 6px;
+}
+
 #search-btn {
     margin-top: 5px;
+    background-color: rgb(175, 123, 73);
+    border: 2px solid rgb(175, 123, 73);
+    border-radius: 3px;
+    font-weight: bold;
+    color: white;
+    line-height: 24px;
 }
 
 #results li {
@@ -66,9 +104,9 @@ section {
 #item2,#item3{margin-left:10px;}
 
 .card1 {
-    width: 18rem;
-    float: left;
+    width: 100%;
     margin: 5px;
+	margin-bottom: 20px;
 }
 
 .card2 {
@@ -80,17 +118,26 @@ section {
 .card-img-top {
     height: 200px;
 }
-
+.product {
+    width: 24%;
+    float: left;
+    margin-right: 10px;
+}
+#none{
+	margin-top:20px;z-index: 1;position:absolute;background: #f3f3f3;
+}
 
 
 #none{display:none;}
 .list-left .fav img{width:20px;height:20px;}
 .fav img{width:30px;height:30px;}
 .fav { display: none; }
-.product:hover .fav{ display: block; width:150px;height:30px;z-index:1;margin-top:20px;position: absolute;background:#f3f3f3;cursor:pointer;}
-.list-left:hover .fav{ display: block; width:100px;height:20px;z-index:1;margin-top:20px;font-size:10px;position: absolute;background:#f3f3f3;cursor:pointer;}
+.list-left:hover .favvideo{display: block; width:118px;height:25px;background: url(../images/img.png);z-index:1;margin-top:20px;position: absolute;cursor:pointer;background-size:cover;}
+
+.list-left:hover .favdel{ display: block; width:30px;height:30px;z-index:1;background: url(../images/filled.png)#f3f3f3;margin-top:20px;position: absolute;background-size: cover;}
+.product:hover .fav{ display: block; width:150px;height:30px;background: url(../images/img.png);z-index:1;margin-top:20px;position: absolute;cursor:pointer;}
 
 .favdel img{width:30px;height:30px;}
 .favdel { display: none; }
-.product:hover .favdel{ display: block; width:30px;height:30px;z-index:1;margin-top:20px;position: absolute;background:#f3f3f3;cursor:pointer;}
-.list-left:hover .favdel{ display: block; width:30px;height:20px;z-index:1;margin-top:20px;font-size:10px;position: absolute;background:#f3f3f3;cursor:pointer;}
+.product:hover .favdel{ display: block; width:30px;height:30px;z-index:1;background: url(../images/filled.png)#f3f3f3;margin-top:20px;position: absolute;background-size: cover;}
+
