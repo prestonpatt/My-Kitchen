@@ -1,5 +1,6 @@
 var apiKeyYouTube = 'AIzaSyDK_1yPwKvCaESvpbb720lhlXhWOgA7TZA';
 var apiKeyYouTube2 = 'AIzaSyDqxSqqaRusfJAst31QLaECEm9N3wUjVCA';
+var apiKeyYouTube3 = 'AIzaSyCJdvoiiHXj_gTPs4znRcg0fNg1dxterqo';
 var f2fapiKey = "efaba70a5fdb8ae09da79304b664e07c";
 var f2fapiKey2 = "b2189fb78a14525d96d74258664ac4de";
 var aaronApiKey = "7cceeb4b2220e0c81e6507314de65e35";
@@ -51,7 +52,7 @@ function runCode() {
             type: 'video',
             channelId: 'UCJFp8uSYCjXOMnkUyb3CQ3Q',
             maxResults: '6',
-            key: apiKeyYouTube
+            key: apiKeyYouTube3
         },
         function (data) {
             $.each(data.items, function (i, item) {
@@ -113,7 +114,7 @@ function getOutput2(response, i) {
     var output2 = $("<div class='product'>").html('<div class="fav" id="bn" rel ="' + f2f + ',' + recipeImg + ',' + recipeURL + ',' + title + '"></div><img src="' + recipeImg + '" class="card-img-top"' +
         ' alt="..."><div class="card-body" style="border: 1px solid lightgray;">' +
         '<h5 class="card-title">' + recipeTitle + '</h5>' +
-        '<a href="' + recipeURL + '" target="_blank" class="btn btn-primary">Directions</a>'
+        '<a href="' + recipeURL + '" target="_blank" class="btn btn-primary">directions</a>'
     );
     return output2;
 };

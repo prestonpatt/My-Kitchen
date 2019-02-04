@@ -3,11 +3,25 @@ a {
     text-decoration: none;
 }
 
+body {
+    background-image: url('../images/background.png');
+    background-repeat: repeat;
+}
+
 h1 {
     font-size: 20px;
     color: rgb(27, 26, 25);
     text-align: center;
-    margin-left: 120px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+.jumbotron {
+    background: url('../images/mykitchenlogo.png') no-repeat center center; 
+    margin-bottom: -10px;
+    margin-top: 20px;
+    height: 210px;
+    color: white;
 }
 
 #container {
@@ -16,22 +30,15 @@ h1 {
     margin: auto;
 }
 
-
-.jumbotron {
-    background: url('../images/mykitchenlogo.png') no-repeat center center;
-    background-color: white;
-    margin-top: 30px;
-    } 
-
 section {
     padding: 30px 20px 20px 20px;
 }
 
 .card-header {
-    background-color: rgb(243, 230, 202);
+    background-color: rgb(231, 130, 0);
     border: 1px solid rgb(243, 230, 202);
     font-weight: bold;
-    color: rgb(175, 123, 73);
+    color: white;
     line-height: 30px;
 }
 
@@ -39,12 +46,16 @@ section {
     border: 1px solid rgb(243, 230, 202);
 }
 
+.form-control {
+    border-color: rgb(243, 230, 202)
+}
+
 .myfavbutton{
 	float: right;
-    margin-top: 150px;
-    margin-right: 80px;
-    background-color: rgb(175, 123, 73);
-    border: 2px solid rgb(175, 123, 73);
+    margin-top: 160px;
+    margin-right: 78px;
+    background-color: olivedrab;
+    border: 2px solid white;
     border-radius: 3px;
     font-weight: bold;
     color: white;
@@ -52,14 +63,58 @@ section {
     padding-bottom: 6px;
 }
 
+.myfavbutton:hover {
+    color: olivedrab;
+    background-color: rgb(222, 236, 192);
+    border-color: olivedrab;
+}
+
+.home-btn{
+	float: right;
+    margin-top: 160px;
+    margin-right: 78px;
+    background-color: olivedrab;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    line-height: 24px;
+    padding-bottom: 6px;
+}
+
+.home-btn:hover {
+    color: olivedrab;
+    background-color: rgb(222, 236, 192);
+    border-color: olivedrab;
+}
+
+.btn-primary {
+    font-size: 16px;
+    background-color: olivedrab;
+    border: 2px solid white;   
+   font-weight: bold;
+}
+
+.btn-primary:hover {
+    color: olivedrab;
+    background-color: rgb(222, 236, 192);
+    border: 2px solid olivedrab;
+}
+
 #search-btn {
     margin-top: 5px;
-    background-color: rgb(175, 123, 73);
-    border: 2px solid rgb(175, 123, 73);
+    background-color: olivedrab;
+    border: 2px solid olivedrab;
     border-radius: 3px;
     font-weight: bold;
     color: white;
     line-height: 24px;
+}
+
+#search-btn:hover {
+    color: olivedrab;
+    background-color: rgb(222, 236, 192);
+    border-color: olivedrab;
 }
 
 #results li {
@@ -104,9 +159,8 @@ section {
 #item2,#item3{margin-left:10px;}
 
 .card1 {
-    width: 100%;
-    margin: 5px;
-	margin-bottom: 20px;
+    margin: 20px;
+    display: inline;
 }
 
 .card2 {
@@ -116,17 +170,38 @@ section {
 }
 
 .card-img-top {
-    height: 200px;
+    height: 220px;
 }
+
+div.card-header {
+    color: white;
+    background-color: #E2803E;
+}
+
+.card-title {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.card-body {
+    padding: 20px;
+}
+
+div.col-md-12 {
+    padding: 0px;
+}
+
 .product {
     width: 24%;
     float: left;
     margin-right: 10px;
 }
+
 #none{
 	margin-top:20px;z-index: 1;position:absolute;background: #f3f3f3;
 }
-
 
 #none{display:none;}
 .list-left .fav img{width:20px;height:20px;}
