@@ -13,19 +13,10 @@
 </head>
 
 <body>
-    <div>
-        <a href=#><button class="myfavbutton">my favorites</button></a>
+    <a href='favorites.html'><button class="myfavbutton">my favorites</button></a>
     </div>
-
     <div class="container">
-        <div class="jumbotron">
-
-        </div>
-
-        <div>
-            <h1>Search top-rated recipes & cooking videos and make them your favorite!</h1>
-        </div>
-
+        <div class="jumbotron"></div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
@@ -33,11 +24,10 @@
                     <div class="card-body">
                         <form id="search-form" name="search-form" onsubmit="return search()" data-parsley-validate>
                             <div class="fieldcontainer">
-                                <input type="search" id="query" class="form-control" placeholder="Search Recipes"
+                                <input type="search" id="query" class="form-control" placeholder="Search Recipe Name or Key Ingredient"
                                     data-parsley-required="true" data-parsley-trigger="submit"
                                     data-parsley-error-message="Please Enter Food Here!" />
-                                <input type="submit" name="search-btn" id="search-btn" value="Submit">
-
+                                <input type="submit" name="search-btn" id="search-btn" value="submit">
                             </div>
                         </form>
                     </div>
@@ -66,37 +56,10 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="row" id="pointer">
-            <div class="col-md-12">
-                <div class="card mb-4">
-                    <div class="card-header"><img src="assets/images/filled.png" style="width:30px;height:30px;" />My
-                        Favorite Recipes Direction</div>
-                    <div class="card-body" id="text-dump">
-                        <div class="card1" id="item"></div>
-
-                    </div>
-                </div>
-            </div>
+        <script src="assets/javascript/javascript.js"></script>
+        <div class="footer-container">
+            <footer>Copyright &copy2019 My Kitchen</footer>
         </div>
-
-        <div class="row" id="pointer">
-            <div class="col-md-12">
-                <div class="card mb-4">
-                    <div class="card-header"><img src="assets/images/filled.png" style="width:30px;height:30px;" />My
-                        Favorite Recipes Videos</div>
-                    <div class="card-body" id="text-dump">
-                        <div class="card1" id="video"></div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <script src="assets/javascript/javascript.js"></script>
 </body>
 
 </html>
