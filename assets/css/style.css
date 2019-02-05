@@ -19,7 +19,7 @@ h1 {
 .jumbotron {
     background: url('../images/mykitchenlogo.png') no-repeat center center;
     margin-bottom: -10px;
-    margin-top: 20px;
+    margin-top: 60px;
     height: 210px;
     color: white;
 }
@@ -48,15 +48,15 @@ h1 {
 
 .myfavbutton {
     float: right;
-    margin-top: 160px;
-    margin-right: 190px;
+    margin-right: 1%;
     background-color: olivedrab;
     border: 2px solid white;
     border-radius: 3px;
     font-weight: bold;
     color: white;
     line-height: 24px;
-    padding-bottom: 6px;
+    z-index: 2;
+    
 }
 
 .myfavbutton:hover {
@@ -67,15 +67,13 @@ h1 {
 
 .home-btn {
     float: right;
-    margin-top: 160px;
-    margin-right: 196px;
+    margin-right: 1%;
     background-color: olivedrab;
     border: 2px solid white;
     border-radius: 4px;
     font-weight: bold;
     color: white;
     line-height: 24px;
-    padding-bottom: 6px;
 }
 
 .home-btn:hover {
@@ -170,7 +168,7 @@ h1 {
 
 div.card-header {
     color: white;
-    background-color: #E2803E;
+    background-color: rgb(231, 130, 0);
 }
 
 .card-title {
@@ -279,3 +277,11 @@ div.col-md-12 {
     position: absolute;
     background-size: cover;
 }
+.header-elements {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background: rgb(231, 130, 0);
+    z-index: 2;
+}
+
