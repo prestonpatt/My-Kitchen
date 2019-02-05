@@ -189,7 +189,7 @@ div.col-md-12 {
 .product {
     width: 24%;
     float: left;
-    margin-right: 10px;
+    margin: 10px 25px;
 }
 
 .footer-container {
