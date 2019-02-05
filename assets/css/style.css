@@ -17,7 +17,7 @@ h1 {
 }
 
 .jumbotron {
-    background: url('../images/mykitchenlogo.png') no-repeat center center; 
+    background: url('../images/mykitchenlogo.png') no-repeat center center;
     margin-bottom: -10px;
     margin-top: 20px;
     height: 210px;
@@ -28,10 +28,6 @@ h1 {
     width: 740px;
     background: #fff;
     margin: auto;
-}
-
-section {
-    padding: 30px 20px 20px 20px;
 }
 
 .card-header {
@@ -50,10 +46,10 @@ section {
     border-color: rgb(243, 230, 202)
 }
 
-.myfavbutton{
-	float: right;
+.myfavbutton {
+    float: right;
     margin-top: 160px;
-    margin-right: 62px;
+    margin-right: 190px;
     background-color: olivedrab;
     border: 2px solid white;
     border-radius: 3px;
@@ -69,10 +65,10 @@ section {
     border-color: olivedrab;
 }
 
-.home-btn{
-	float: right;
+.home-btn {
+    float: right;
     margin-top: 160px;
-    margin-right: 62px;
+    margin-right: 196px;
     background-color: olivedrab;
     border: 2px solid white;
     border-radius: 4px;
@@ -91,8 +87,8 @@ section {
 .btn-primary {
     font-size: 16px;
     background-color: olivedrab;
-    border: 2px solid white;   
-   font-weight: bold;
+    border: 2px solid white;
+    font-weight: bold;
 }
 
 .btn-primary:hover {
@@ -123,10 +119,12 @@ section {
     list-style: none;
     overflow: auto;
 }
+
 .list-left {
     float: left;
     width: 20%;
 }
+
 .list-left img {
     width: 100%;
     padding: 3px;
@@ -156,17 +154,14 @@ section {
     cursor: pointer;
 }
 
-#item2,#item3{margin-left:10px;}
+#item2,
+#item3 {
+    margin-left: 10px;
+}
 
 .card1 {
     margin: 20px;
     display: inline;
-}
-
-.card2 {
-    width: 18rem;
-    float: left;
-    margin: 2px;
 }
 
 .card-img-top {
@@ -202,24 +197,85 @@ div.col-md-12 {
 .footer-container {
     text-align: center;
     color: olivedrab;
-    font-weight: bold; 
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-#none{
-	margin-top:20px;z-index: 1;position:absolute;background: #f3f3f3;
+#none {
+    margin-top: 20px;
+    z-index: 1;
+    position: absolute;
+    background: #f3f3f3;
 }
 
-#none{display:none;}
-.list-left .fav img{width:20px;height:20px;}
-.fav img{width:30px;height:30px;}
-.fav { display: none; }
-.list-left:hover .favvideo{display: block; width:118px;height:25px;background: url(../images/img.png);z-index:1;margin-top:20px;position: absolute;cursor:pointer;background-size:cover;}
+#none {
+    display: none;
+}
 
-.list-left:hover .favdel{ display: block; width:30px;height:30px;z-index:1;background: url(../images/filled.png)#f3f3f3;margin-top:20px;position: absolute;background-size: cover;}
-.product:hover .fav{ display: block; width:150px;height:30px;background: url(../images/img.png);z-index:1;margin-top:20px;position: absolute;cursor:pointer;}
+.list-left .fav img {
+    width: 20px;
+    height: 20px;
+}
 
-.favdel img{width:30px;height:30px;}
-.favdel { display: none; }
-.product:hover .favdel{ display: block; width:30px;height:30px;z-index:1;background: url(../images/filled.png)#f3f3f3;margin-top:20px;position: absolute;background-size: cover;}
+.fav img {
+    width: 30px;
+    height: 30px;
+}
 
+.fav {
+    display: none;
+}
+
+.list-left:hover .favvideo {
+    display: block;
+    width: 118px;
+    height: 25px;
+    background: url(../images/img.png);
+    z-index: 1;
+    margin-top: 20px;
+    position: absolute;
+    cursor: pointer;
+    background-size: cover;
+}
+
+.list-left:hover .favdel {
+    display: block;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    background: url(../images/filled.png)#f3f3f3;
+    margin-top: 20px;
+    position: absolute;
+    background-size: cover;
+}
+
+.product:hover .fav {
+    display: block;
+    width: 150px;
+    height: 30px;
+    background: url(../images/img.png);
+    z-index: 1;
+    margin-top: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.favdel img {
+    width: 30px;
+    height: 30px;
+}
+
+.favdel {
+    display: none;
+}
+
+.product:hover .favdel {
+    display: block;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    background: url(../images/filled.png)#f3f3f3;
+    margin-top: 20px;
+    position: absolute;
+    background-size: cover;
+}

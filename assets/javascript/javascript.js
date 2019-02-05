@@ -9,14 +9,12 @@ var queryURL = "https://www.food2fork.com/api/search?key=" + f2fapiKey2 + "&q=";
 var f2f;
 var ranNums = [];
 let num, already = new Object;
-
 let start = 0,
     end = 30;
 
 $(function () {
     $('#search-form').submit(function (e) {
         e.preventDefault();
-
         $('#results').empty();
         $('#text-dump').empty();
         for (let i = 0; i < 6;) {
@@ -26,11 +24,9 @@ $(function () {
                 i++;
                 ranNums.push(String(num));
                 if (i < 25);
-
             }
         }
     });
-
 });
 
 function search(a) {
@@ -44,7 +40,6 @@ function search(a) {
 
 function runCode() {
     q = $('#query').val();
-
     $.get(
         "https://www.googleapis.com/youtube/v3/search", {
             part: 'snippet, id',
@@ -52,7 +47,7 @@ function runCode() {
             type: 'video',
             channelId: 'UCJFp8uSYCjXOMnkUyb3CQ3Q',
             maxResults: '6',
-            key: apiKeyYouTube3
+            key: apiKeyYouTube2
         },
         function (data) {
             $.each(data.items, function (i, item) {
@@ -83,7 +78,7 @@ function getOutput(item) {
     var description = item.snippet.description;
     var thumb = item.snippet.thumbnails.high.url;
     var channelTitle = item.snippet.channelTitle;
-    var videoDate = item.snippet.publishedAt; 
+    var videoDate = item.snippet.publishedAt;
     var ctitle = title.replace(/\s/g, "_");
 
     var output = '<li>' +
@@ -99,7 +94,6 @@ function getOutput(item) {
         '<div class="clearfix"></div>' +
         '';
     return output;
-
 }
 
 
@@ -120,7 +114,6 @@ function getOutput2(response, i) {
 };
 
 $('body').on("click", "#video", function () {
-
     var a = $(this).attr("rel");
     $(this).removeClass("favvideo");
     $(this).addClass("favdel");
@@ -148,7 +141,6 @@ $('body').on("click", "#video", function () {
         localStorage.setItem('vid7', JSON.stringify(res));
     }
     res = null;
-
 });
 
 
@@ -171,7 +163,6 @@ if (vid1 != null) {
         '<a href="https://youtube.com/embed/' + obj[0] + '" target="_blank"><img src=' + obj[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 
@@ -185,7 +176,6 @@ if (vid2 != null) {
         '<a href="https://youtube.com/embed/' + obj2[0] + '" target="_blank"><img src=' + obj2[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj2[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 
@@ -199,7 +189,6 @@ if (vid3 != null) {
         '<a href="https://youtube.com/embed/' + obj3[0] + '" target="_blank"><img src=' + obj3[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj3[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 
@@ -213,7 +202,6 @@ if (vid4 != null) {
         '<a href="https://youtube.com/embed/' + obj4[0] + '" target="_blank"><img src=' + obj4[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj4[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 
@@ -227,7 +215,6 @@ if (vid5 != null) {
         '<a href="https://youtube.com/embed/' + obj5[0] + '" target="_blank"><img src=' + obj5[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj5[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 if (vid6 != null) {
@@ -240,7 +227,6 @@ if (vid6 != null) {
         '<a href="https://youtube.com/embed/' + obj6[0] + '" target="_blank"><img src=' + obj6[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj6[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 if (vid7 != null) {
@@ -253,17 +239,14 @@ if (vid7 != null) {
         '<a href="https://youtube.com/embed/' + obj7[0] + '" target="_blank"><img src=' + obj7[1] + ' class="card-img-top" alt="..."></a>' +
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title"><a href="https://youtube.com/embed/' + obj7[0] + '" target="_blank">' + title + '</a></h5>' +
         '</div></div>');
-
 }
 
 $('body').on("click", "#bn", function () {
-
     var a = $(this).attr("rel");
     $(this).removeClass("fav");
     $(this).addClass("favdel");
     $(this).removeAttr('id');
     var res = a.split(",");
-
     var prd1 = localStorage.getItem('prd1');
     var prd2 = localStorage.getItem('prd2');
     var prd3 = localStorage.getItem('prd3');
@@ -285,7 +268,6 @@ $('body').on("click", "#bn", function () {
     } else {
         localStorage.setItem('prd7', JSON.stringify(res));
     }
-
 });
 
 var prd1 = localStorage.getItem('prd1');
@@ -306,7 +288,6 @@ if (prd1 != null) {
         '<div class="card-body" style="border: 1px solid lightgray;"><h5 class="card-title">' + tit + '</h5>' +
         '<a href=' + item[2] + ' target="_blank" class="btn btn-primary">Directions</a>' +
         '</div></div>');
-
 }
 
 if (prd2 != null) {
