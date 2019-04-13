@@ -8,7 +8,7 @@ My Kitchen is a simple recipe aggregator that allows a user to search for recipe
 
 ## Demo
 
-![My Kitchen Gif](https://media.giphy.com/media/RLEWDzhoxMPkdaXfiK/source.mov)
+![My Kitchen Gif](https://media.giphy.com/media/RLEWDzhoxMPkdaXfiK/giphy.gif)
 
 ## Technologies Used
 HTML, CSS, Bootstrap, Javascript, jQuery, Food2Fork API, YouTubeAPI
