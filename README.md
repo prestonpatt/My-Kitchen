@@ -1,14 +1,19 @@
-# project1
+# My Kitchen
 
-Project 1 Overview
+## Description
 
-Project Title: Recipe Aggregator
-Team Members: Juan Delgado, Aaron Smith, Preston Patterson, Sarah Diseker
-Aggregates written recipes (Spoonacular API) and cooking videos (YouTube API) that allows you to save your favorites locally.
+*My Kitchen: A Recipe Aggregator*
 
-Ability to search for recipes via Food2Fork API and YouTube API
-Abiility for users to save a recipe as a "favorite" recipe to their local repository and also have it show in a secion titled "favorite recipes" (this new secion will be beneath the YouTube results section)
+My Kitchen is a simple recipe aggregator that allows a user to search for recipes by ingredients as well as view instructional cooking videos. Favorites can be save in local storage.
+
+## Demo
+
+![My Kitchen Gif](https://media.giphy.com/media/RLEWDzhoxMPkdaXfiK/source.mov)
+
+## Technologies Used
+HTML, CSS, Bootstrap, Javascript, jQuery, Food2Fork API, YouTubeAPI
 
 
+## Created by:
 
-
+Juan Delgado, Aaron Smith, Preston Patterson, Sarah Diseker
